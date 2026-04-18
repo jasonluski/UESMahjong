@@ -259,6 +259,7 @@ body.menu-open { overflow: hidden; }
   background-size: 28px 28px;
   -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 75%);
           mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 75%);
+  will-change: transform;
 }
 
 .logo-mark {
@@ -416,6 +417,9 @@ body.menu-open { overflow: hidden; }
   gap: 0.75rem;
   background-color: var(--cream);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .pricing-card::before {
