@@ -243,6 +243,14 @@ nav {
   color: var(--steel-blue);
 }
 
+.pricing-per-note {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--steel-blue);
+}
+
 .pricing-detail {
   font-family: var(--font-sans);
   font-size: 0.72rem;
