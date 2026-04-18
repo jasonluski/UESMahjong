@@ -539,6 +539,10 @@ body.menu-open { overflow: hidden; }
   color: var(--gold);
 }
 
+.pricing-card .btn-book {
+  margin-top: auto;
+}
+
 .btn-book--light {
   background-color: var(--cream);
   border-color: var(--cream);
