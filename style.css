@@ -262,21 +262,19 @@ body.menu-open { overflow: hidden; }
   will-change: transform;
 }
 
-.logo-mark {
-  width: 90px;
-  height: auto;
-  color: var(--near-black);
-  margin-bottom: 2rem;
-  filter: drop-shadow(0 6px 18px rgba(26, 24, 21, 0.08));
+.hero-logo-wrap {
+  margin: 0 0 1.5rem;
+  line-height: 0;
+  font-weight: inherit;
 }
 
-.hero-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  letter-spacing: 0.08em;
-  line-height: 1.05;
-  margin-bottom: 0.4rem;
+.hero-logo {
+  display: block;
+  width: clamp(280px, 52vw, 520px);
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 6px 18px rgba(26, 24, 21, 0.08));
+  will-change: transform;
 }
 
 .hero-flourish {
@@ -299,23 +297,6 @@ body.menu-open { overflow: hidden; }
   height: 5px;
   background-color: var(--gold);
   transform: rotate(45deg);
-}
-
-.hero-subtitle {
-  font-family: var(--font-sans);
-  font-weight: 300;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--steel-blue);
-  margin-bottom: 1.5rem;
-}
-
-.hero-divider {
-  width: 40px;
-  height: 1px;
-  background-color: var(--gold);
-  margin: 0 auto 1.5rem;
 }
 
 .hero-tagline {
