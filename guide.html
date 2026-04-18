@@ -385,13 +385,16 @@
       var toggle = document.querySelector('.nav-toggle');
       var menu = document.getElementById('mobileMenu');
       if (!toggle || !menu) return;
+      var closeBtn = menu.querySelector('.mobile-menu-close');
+      function closeMenu() { menu.close(); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); }
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
       toggle.addEventListener('click', function() {
         var open = menu.open;
-        if (open) { menu.close(); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); }
+        if (open) { closeMenu(); }
         else { menu.show(); toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', 'Close menu'); }
       });
       menu.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() { menu.close(); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); });
+        a.addEventListener('click', closeMenu);
       });
     })();
   </script>
