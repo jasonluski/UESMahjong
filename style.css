@@ -53,7 +53,7 @@
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html {
@@ -169,15 +169,19 @@ nav.nav--scrolled {
 
 /* Mobile menu dialog */
 .mobile-menu {
+  position: fixed;
+  inset: 0;
   border: none;
   padding: 0;
   margin: 0;
-  width: 100vw;
-  max-width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
   background-color: var(--cream);
   color: var(--near-black);
+  display: none;
+  z-index: 200;
 }
 .mobile-menu::backdrop { background: rgba(26, 24, 21, 0.3); }
 .mobile-menu[open] {
@@ -1527,3 +1531,113 @@ footer small,
 }
 
 /* keep decorative steel-blue only for scope it was intended as an accent */
+
+/* Sections use data-reveal only for the ::before divider — don't fade them out */
+section[data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
+}
+
+/* ── ANIMATED SECTION DIVIDERS ── */
+
+.intro,
+.pricing,
+.instagram,
+.booking,
+.contact-section {
+  position: relative;
+}
+
+.intro::before,
+.pricing::before,
+.instagram::before,
+.booking::before,
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: calc(100% - 5rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--gold) 80%, transparent 100%);
+  transition: transform 0.8s var(--ease);
+}
+
+.intro.is-visible::before,
+.pricing.is-visible::before,
+.instagram.is-visible::before,
+.booking.is-visible::before,
+.contact-section.is-visible::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Remove the old static border-top from these sections since the animated line replaces it */
+.intro { border-top: none; }
+.pricing { border-top: none; }
+.instagram { border-top: none; }
+.booking { border-top: none; }
+.contact-section { border-top: none; }
+
+/* ── STICKY MOBILE BOOK CTA ── */
+
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  padding: 0.75rem 1.5rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to top, var(--cream) 70%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.sticky-cta.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.sticky-cta-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--cream);
+  background-color: var(--near-black);
+  border: 1px solid var(--near-black);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(26, 24, 21, 0.18);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.sticky-cta-btn:hover {
+  background-color: var(--gold);
+  border-color: var(--gold);
+}
+
+@media (min-width: 681px) {
+  .sticky-cta {
+    display: none !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .sticky-cta {
+    display: block;
+  }
+}
