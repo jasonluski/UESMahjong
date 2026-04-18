@@ -438,6 +438,7 @@
     // Hero parallax — pattern layer at 0.35×, logo-mark at 0.15×
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.innerWidth < 768) return;
       var pattern = document.querySelector('.hero-pattern');
       var logoMark = document.querySelector('.logo-mark');
       var hero = document.querySelector('.hero');

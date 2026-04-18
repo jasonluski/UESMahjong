@@ -253,10 +253,6 @@ body.menu-open { overflow: hidden; }
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.06;
-  background-image:
-    radial-gradient(circle at 1px 1px, var(--near-black) 1px, transparent 1.5px);
-  background-size: 28px 28px;
   -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 75%);
           mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 75%);
   will-change: transform;
