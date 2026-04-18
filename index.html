@@ -117,7 +117,32 @@
         <a class="btn-book btn-book--light" href="#book">Book Now</a>
       </div>
 
+      <div class="pricing-card pricing-card--package">
+        <span class="pricing-save">Save $50</span>
+        <p class="pricing-type">5-Pack</p>
+        <p class="pricing-amount">$450 <span class="pricing-original">$500</span></p>
+        <p class="pricing-detail">5 Private Lessons · 60 min each</p>
+        <ul class="pricing-features">
+          <li>Best value for learners</li>
+          <li>Valid 6 months from purchase</li>
+          <li>All materials included</li>
+        </ul>
+        <a class="btn-book" href="#book">Book Now</a>
+      </div>
+
     </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram" id="instagram">
+    <h2 class="section-label">Follow Along</h2>
+    <p class="instagram-handle">
+      <a href="https://instagram.com/uesmahjong" target="_blank" rel="noopener">&#64;uesmahjong</a>
+    </p>
+    <div class="instagram-embed">
+      <div data-behold-id="BEHOLD_ID"></div>
+    </div>
+    <a class="btn-book btn-book--outline" href="https://instagram.com/uesmahjong" target="_blank" rel="noopener">View on Instagram</a>
   </section>
 
   <!-- BOOK -->
@@ -170,6 +195,13 @@
             <span class="radio-card-inner">
               <span class="radio-card-title">Group</span>
               <span class="radio-card-detail">$300 · 90 min · Up to 4 people</span>
+            </span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="lesson_type" value="5-Pack Private ($450 · 5 × 60 min)" />
+            <span class="radio-card-inner">
+              <span class="radio-card-title">5-Pack <span class="radio-badge">Save $50</span></span>
+              <span class="radio-card-detail">$450 · 5 private lessons, 60 min each</span>
             </span>
           </label>
         </div>
@@ -260,6 +292,9 @@
     <p class="footer-brand">UES Mahjong <span>&middot; New York</span></p>
     <small>&copy; 2025 UES Mahjong. All rights reserved.</small>
   </footer>
+
+  <!-- Behold.so Instagram widget -->
+  <script src="https://w.behold.so/widget.js" type="module"></script>
 
   <script>
     // Show/hide group size field
