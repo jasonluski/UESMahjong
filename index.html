@@ -139,7 +139,7 @@
   </section>
 
   <!-- INTRO -->
-  <section class="intro" id="about">
+  <section class="intro" id="about" data-reveal>
 
     <div class="intro-block" data-reveal>
       <h2>About</h2>
@@ -158,7 +158,7 @@
   </section>
 
   <!-- LESSONS & PRICING -->
-  <section class="pricing" id="lessons">
+  <section class="pricing" id="lessons" data-reveal>
     <h2 class="section-label" data-reveal>Lessons</h2>
     <div class="pricing-grid">
 
@@ -204,7 +204,7 @@
   </section>
 
   <!-- INSTAGRAM -->
-  <section class="instagram" id="instagram">
+  <section class="instagram" id="instagram" data-reveal>
     <h2 class="section-label" data-reveal>Follow Along</h2>
     <p class="instagram-handle" data-reveal>
       <a href="https://instagram.com/uesmahjong" target="_blank" rel="noopener">&#64;uesmahjong</a>
@@ -221,7 +221,7 @@
   </section>
 
   <!-- BOOK -->
-  <section class="booking" id="book">
+  <section class="booking" id="book" data-reveal>
     <h2 class="section-label" data-reveal>Book a Lesson</h2>
     <p class="booking-intro" data-reveal>Fill in the form below and we'll confirm your session within 24 hours.</p>
 
@@ -378,7 +378,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact-section" id="contact">
+  <section class="contact-section" id="contact" data-reveal>
     <h2 class="section-label" data-reveal>Get in Touch</h2>
     <p class="contact-intro" data-reveal>Questions before booking? Reach out any way that works for you.</p>
     <div class="contact-cards">
@@ -440,6 +440,11 @@
     </form>
   </dialog>
 
+  <!-- Sticky mobile book CTA -->
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <a class="sticky-cta-btn" href="#book">Book a Lesson</a>
+  </div>
+
   <!-- Behold.so Instagram widget -->
   <script src="https://w.behold.so/widget.js" type="module"></script>
 
@@ -481,14 +486,19 @@
       var menu = document.getElementById('mobileMenu');
       if (!toggle || !menu) return;
       var openMenu = function() {
-        if (typeof menu.showModal === 'function') menu.showModal();
-        else menu.setAttribute('open', '');
+        if (menu.hasAttribute('open')) return;
+        try {
+          if (typeof menu.showModal === 'function') menu.showModal();
+          else menu.setAttribute('open', '');
+        } catch(e) { menu.setAttribute('open', ''); }
         toggle.setAttribute('aria-expanded', 'true');
         document.body.classList.add('menu-open');
       };
       var closeMenu = function() {
-        if (typeof menu.close === 'function') menu.close();
-        else menu.removeAttribute('open');
+        try {
+          if (typeof menu.close === 'function') menu.close();
+          else menu.removeAttribute('open');
+        } catch(e) { menu.removeAttribute('open'); }
         toggle.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-open');
       };
@@ -500,6 +510,31 @@
       menu.addEventListener('click', function(e) {
         if (e.target === menu) closeMenu();
       });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.hasAttribute('open')) closeMenu();
+      });
+    })();
+
+    // Sticky CTA — show after hero, hide when booking form is in view
+    (function() {
+      var cta = document.getElementById('stickyCta');
+      var hero = document.querySelector('.hero');
+      var booking = document.getElementById('book');
+      if (!cta || !hero || !booking) return;
+      var show = false;
+      var nearBook = false;
+      var update = function() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var bookTop = booking.getBoundingClientRect().top;
+        var shouldShow = heroBottom < 0 && bookTop > 100;
+        if (shouldShow !== show) {
+          show = shouldShow;
+          cta.classList.toggle('is-visible', show);
+          cta.setAttribute('aria-hidden', String(!show));
+        }
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
     })();
 
     // Instagram skeleton — hide once the Behold widget injects content

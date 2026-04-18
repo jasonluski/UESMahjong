@@ -409,14 +409,19 @@
       var menu = document.getElementById('mobileMenu');
       if (!toggle || !menu) return;
       var openMenu = function() {
-        if (typeof menu.showModal === 'function') menu.showModal();
-        else menu.setAttribute('open', '');
+        if (menu.hasAttribute('open')) return;
+        try {
+          if (typeof menu.showModal === 'function') menu.showModal();
+          else menu.setAttribute('open', '');
+        } catch(e) { menu.setAttribute('open', ''); }
         toggle.setAttribute('aria-expanded', 'true');
         document.body.classList.add('menu-open');
       };
       var closeMenu = function() {
-        if (typeof menu.close === 'function') menu.close();
-        else menu.removeAttribute('open');
+        try {
+          if (typeof menu.close === 'function') menu.close();
+          else menu.removeAttribute('open');
+        } catch(e) { menu.removeAttribute('open'); }
         toggle.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-open');
       };
@@ -427,6 +432,9 @@
       });
       menu.addEventListener('click', function(e) {
         if (e.target === menu) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.hasAttribute('open')) closeMenu();
       });
     })();
   </script>
