@@ -1832,38 +1832,28 @@ section[data-reveal] {
   }
 }
 
-/* ── FLOATING LABELS ── */
+/* ── LABEL-ABOVE INPUTS (replaces floating labels) ── */
 
 .form-group--float {
-  position: relative;
-  padding-top: 0.85rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.35rem;
+  padding-top: 0;
 }
 
 .form-group--float label {
-  position: absolute;
-  top: 1.6rem;
-  left: 1rem;
-  transform-origin: left top;
-  transition: transform 0.22s var(--ease), color 0.22s var(--ease);
-  pointer-events: none;
+  position: static;
+  transition: color 0.2s var(--ease);
 }
 
 .form-group--float input::placeholder,
 .form-group--float textarea::placeholder {
-  color: transparent;
-  transition: color 0.15s 0.08s;
-}
-
-.form-group--float input:focus::placeholder,
-.form-group--float textarea:focus::placeholder {
   color: var(--slate);
+  opacity: 0.6;
 }
 
 .form-group--float input:focus ~ label,
-.form-group--float input:not(:placeholder-shown) ~ label,
-.form-group--float textarea:focus ~ label,
-.form-group--float textarea:not(:placeholder-shown) ~ label {
-  transform: translateY(-1.1rem) scale(0.82);
+.form-group--float textarea:focus ~ label {
   color: var(--gold);
 }
 
@@ -1888,6 +1878,7 @@ section[data-reveal] {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 160px 1fr;
+  gap: 0 2rem;
   align-items: start;
 }
 
@@ -1944,6 +1935,8 @@ section[data-reveal] {
 
 .guide-layout .guide {
   max-width: none;
+  margin: 0;
+  min-width: 0;
 }
 
 @media (max-width: 860px) {
