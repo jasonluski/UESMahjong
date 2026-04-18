@@ -322,7 +322,6 @@ body.menu-open { overflow: hidden; }
   margin-bottom: 2.5rem;
 }
 
-.mobile-break { display: none; }
 
 .btn-book {
   display: inline-block;
@@ -553,7 +552,7 @@ body.menu-open { overflow: hidden; }
     grid-template-columns: 1fr;
   }
 
-  .mobile-break { display: inline; }
+
 }
 
 /* ── BOOKING FORM ── */
