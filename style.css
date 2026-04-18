@@ -143,6 +143,34 @@ nav.nav--scrolled {
   right: 0;
 }
 
+/* Buy My Guide nav link */
+.nav-links .nav-buy {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.3rem 0.85rem;
+  border-radius: 1px;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.nav-links .nav-buy::after { display: none; }
+.nav-links .nav-buy:hover,
+.nav-links .nav-buy.active {
+  background: var(--gold);
+  color: var(--cream);
+}
+
+.mobile-menu-links .nav-buy {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+
 /* Mobile hamburger */
 .nav-toggle {
   display: none;
