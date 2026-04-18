@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f0e6" />
+  <meta name="color-scheme" content="light" />
   <title>American Mahjong Guide · UES Mahjong</title>
   <meta name="description" content="A table-side reference for American Mahjong — tiles, the Charleston, hand types, winning, and etiquette." />
   <link rel="canonical" href="https://uesmahjong.com/guide.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" />
 
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://uesmahjong.com/guide.html" />
@@ -29,21 +35,34 @@
 <body>
 
   <!-- NAV -->
-  <nav>
+  <nav id="siteNav">
     <a class="nav-logo" href="index.html">UES Mahjong</a>
     <ul class="nav-links">
       <li><a href="index.html#lessons">Lessons</a></li>
       <li><a href="index.html#about">About</a></li>
-      <li><a href="guide.html" class="active">Guide</a></li>
+      <li><a href="guide.html" class="active" aria-current="page">Guide</a></li>
       <li><a href="index.html#book">Book</a></li>
     </ul>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <dialog id="mobileMenu" class="mobile-menu" aria-label="Site menu">
+    <button class="mobile-menu-close" type="button" aria-label="Close menu">&times;</button>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html#lessons">Lessons</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="guide.html" aria-current="page">Guide</a></li>
+      <li><a href="index.html#book">Book</a></li>
+    </ul>
+  </dialog>
 
   <!-- GUIDE HEADER -->
   <header class="guide-header">
-    <p class="guide-eyebrow">A Table-Side Reference</p>
-    <h1 class="guide-title">UES <span class="dot">&middot;</span> <em>Mahjong</em></h1>
-    <p class="guide-subhead">Modern American Rules</p>
+    <p class="guide-eyebrow" data-reveal>A Table-Side Reference</p>
+    <h1 class="guide-title" data-reveal>UES <span class="dot">&middot;</span> <em>Mahjong</em></h1>
+    <p class="guide-subhead" data-reveal>Modern American Rules</p>
   </header>
 
   <div class="guide">
@@ -51,7 +70,7 @@
     <!-- ── PART ONE ── -->
 
     <!-- THE TILES -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">The Tiles</h2>
       <div class="tiles-grid">
         <div class="tile-group">
@@ -98,7 +117,7 @@
     </section>
 
     <!-- THE CHARLESTON -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">The Charleston</h2>
       <div class="two-col">
 
@@ -129,7 +148,7 @@
     </section>
 
     <!-- GAME FLOW -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Game Flow</h2>
       <div class="two-col">
 
@@ -149,7 +168,7 @@
     </section>
 
     <!-- JOKER RULES -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Joker Rules</h2>
       <div class="two-col">
 
@@ -178,7 +197,7 @@
     </section>
 
     <!-- CALLING TILES -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Calling Tiles</h2>
       <ul class="dash-list">
         <li>A discarded tile may be called to complete an <strong>exposed</strong> Pung, Kong, Quint, or Sextet</li>
@@ -193,7 +212,7 @@
     <!-- ── PART TWO ── -->
 
     <!-- READING THE CARD -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Reading the Card</h2>
       <div class="two-col">
 
@@ -218,7 +237,7 @@
     </section>
 
     <!-- HAND TYPES -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Hand Types</h2>
       <p class="muted">Patterns shown are examples. Always follow the current NMJL card.</p>
       <div class="hand-table">
@@ -247,7 +266,7 @@
     </section>
 
     <!-- WINNING -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Winning <span class="accent">&mdash; <em>Mahjong!</em></span></h2>
       <ul class="dash-list">
         <li>Match one complete hand exactly as shown on the card</li>
@@ -259,7 +278,7 @@
     </section>
 
     <!-- ETIQUETTE -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <h2 class="guide-h2">Etiquette</h2>
       <div class="two-col">
 
@@ -287,7 +306,7 @@
     </section>
 
     <!-- QUICK TIPS -->
-    <section class="guide-section">
+    <section class="guide-section" data-reveal>
       <div class="tips-card">
         <p class="card-label dark">Quick Tips for Beginners</p>
         <ol class="tips-list">
@@ -347,10 +366,70 @@
     <form method="dialog" class="qr-modal-inner">
       <button class="qr-close" aria-label="Close" type="submit">&times;</button>
       <p class="qr-title">Scan to visit</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=10&data=https%3A%2F%2Fuesmahjong.com%2F" alt="QR code to UES Mahjong website" width="280" height="280" />
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=10&data=https%3A%2F%2Fuesmahjong.com%2F" alt="QR code to UES Mahjong website" width="280" height="280" loading="lazy" referrerpolicy="no-referrer" />
       <p class="qr-url">uesmahjong.com</p>
     </form>
   </dialog>
+
+  <script>
+    // Scroll-aware nav
+    (function() {
+      var nav = document.getElementById('siteNav');
+      if (!nav) return;
+      var onScroll = function() {
+        if (window.scrollY > 24) nav.classList.add('nav--scrolled');
+        else nav.classList.remove('nav--scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Reveal-on-scroll
+    (function() {
+      var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('[data-reveal]');
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(function(el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+      els.forEach(function(el) { io.observe(el); });
+    })();
+
+    // Mobile menu
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobileMenu');
+      if (!toggle || !menu) return;
+      var openMenu = function() {
+        if (typeof menu.showModal === 'function') menu.showModal();
+        else menu.setAttribute('open', '');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      };
+      var closeMenu = function() {
+        if (typeof menu.close === 'function') menu.close();
+        else menu.removeAttribute('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      };
+      toggle.addEventListener('click', openMenu);
+      menu.querySelector('.mobile-menu-close').addEventListener('click', closeMenu);
+      menu.querySelectorAll('.mobile-menu-links a').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+      menu.addEventListener('click', function(e) {
+        if (e.target === menu) closeMenu();
+      });
+    })();
+  </script>
 
 </body>
 </html>
