@@ -579,6 +579,14 @@
       });
     });
 
+    // Detect if site is accessed from home network
+    function isHomeNetwork() {
+      var hostname = window.location.hostname;
+      return hostname === 'localhost' ||
+             hostname === '127.0.0.1' ||
+             hostname.match(/^192\.168\.|^10\.|^172\.(1[6-9]|2[0-9]|3[01])\./);
+    }
+
     // AJAX form submission via Formspree
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -599,12 +607,16 @@
             document.getElementById('bookingSuccess').style.display = 'block';
           } else {
             var msg = 'Something went wrong. ';
-            if (data && data.errors && data.errors.length) {
+            if (res.status === 403 && isHomeNetwork()) {
+              msg = 'Form access is restricted on home networks. Contact luskiashley@gmail.com to request a booking.';
+            } else if (data && data.errors && data.errors.length) {
               msg = data.errors.map(function(e) { return e.message; }).join(' ');
             } else if (data && data.error) {
               msg = data.error;
+            } else if (res.status === 403) {
+              msg = 'Access denied. ';
             }
-            errorEl.textContent = msg + ' Or email luskiashley@gmail.com directly.';
+            errorEl.textContent = msg + (msg.endsWith('.') ? '' : ' Or email luskiashley@gmail.com directly.');
             btn.disabled = false;
             btn.textContent = 'Request Booking';
           }
