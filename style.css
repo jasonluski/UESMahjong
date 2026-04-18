@@ -298,6 +298,252 @@ nav {
   }
 }
 
+/* ── BOOKING FORM ── */
+
+.booking {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.booking-intro {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--near-black);
+  margin-bottom: 3rem;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group--full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--near-black);
+}
+
+.required { color: var(--gold); }
+.optional { color: var(--steel-blue); font-weight: 300; }
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--near-black);
+  background-color: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1815' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group textarea { resize: vertical; }
+
+/* Lesson type radio cards */
+.lesson-type-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.radio-card {
+  cursor: pointer;
+}
+
+.radio-card input { display: none; }
+
+.radio-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.radio-card input:checked + .radio-card-inner {
+  border-color: var(--near-black);
+  background-color: var(--near-black);
+  color: var(--cream);
+}
+
+.radio-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.radio-card-detail {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--steel-blue);
+}
+
+.radio-card input:checked + .radio-card-inner .radio-card-detail {
+  color: var(--steel-blue);
+}
+
+/* Day-of-week pills */
+.day-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.day-pill { cursor: pointer; }
+.day-pill input { display: none; }
+
+.day-pill span {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.day-pill input:checked + span {
+  background-color: var(--near-black);
+  border-color: var(--near-black);
+  color: var(--cream);
+}
+
+/* Time cards */
+.time-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.time-card { cursor: pointer; }
+.time-card input { display: none; }
+
+.time-card span {
+  display: block;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+  line-height: 1.6;
+}
+
+.time-card small { font-size: 0.65rem; color: var(--steel-blue); font-weight: 300; letter-spacing: 0.05em; }
+
+.time-card input:checked + span {
+  background-color: var(--near-black);
+  border-color: var(--near-black);
+  color: var(--cream);
+}
+
+.time-card input:checked + span small { color: var(--steel-blue); }
+
+/* Submit */
+.btn-submit {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background-color: var(--near-black);
+  border: 1px solid var(--near-black);
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover:not(:disabled) { background-color: var(--gold); border-color: var(--gold); }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form-error {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #b94a48;
+  min-height: 1.2em;
+}
+
+/* Success state */
+.booking-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.success-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.success-msg {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--steel-blue);
+}
+
+@media (max-width: 768px) {
+  .booking { padding: 3rem 1.25rem; }
+  .booking-form { grid-template-columns: 1fr; }
+  .lesson-type-options { grid-template-columns: 1fr; }
+  .time-options { grid-template-columns: 1fr; }
+}
+
 /* ── FOOTER ── */
 
 footer {
