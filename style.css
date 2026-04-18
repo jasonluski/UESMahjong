@@ -988,6 +988,15 @@ footer small {
   color: var(--steel-blue);
 }
 
+.footer-social {
+  color: var(--near-black);
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.footer-social:hover { color: var(--gold); }
+
 /* ── RESPONSIVE ── */
 
 @media (max-width: 768px) {
