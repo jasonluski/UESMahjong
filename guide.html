@@ -70,49 +70,155 @@
     <!-- ── PART ONE ── -->
 
     <!-- THE TILES -->
-    <section class="guide-section" data-reveal>
+    <section class="guide-section tiles-vis-section" data-reveal>
       <h2 class="guide-h2">The Tiles</h2>
-      <div class="tiles-grid">
-        <div class="tile-group">
-          <p class="tile-label">Dots <span>&middot; 4 of each, 1&ndash;9</span></p>
-          <p class="tile-note">Circular "dot" tiles numbered one through nine.</p>
-        </div>
-        <div class="tile-group">
-          <p class="tile-label">Bams <span>&middot; 4 of each, 1&ndash;9</span></p>
-          <p class="tile-note">Bamboo "bam" tiles numbered one through nine. The 1-Bam is traditionally a bird.</p>
-        </div>
-        <div class="tile-group">
-          <p class="tile-label">Craks <span>&middot; 4 of each, 1&ndash;9</span></p>
-          <p class="tile-note">Character "crak" tiles with Chinese numerals, one through nine.</p>
-        </div>
-        <div class="tile-group">
-          <p class="tile-label">Winds <span>&middot; 4 each</span></p>
-          <p class="tile-note">North &middot; East &middot; West &middot; South</p>
-        </div>
-        <div class="tile-group">
-          <p class="tile-label">Dragons <span>&middot; 4 each</span></p>
-          <p class="tile-note">Red (Crak) &middot; Green (Bam) &middot; Soap (Dot)</p>
-        </div>
-        <div class="tile-group">
-          <p class="tile-label">Flowers <span>&middot; 8 total</span></p>
-          <p class="tile-note">Decorative tiles often used as a pair.</p>
-        </div>
-        <div class="tile-group">
-          <p class="tile-label">Jokers <span>&middot; 8 total</span></p>
-          <p class="tile-note">Wild tiles, with restrictions (see Joker Rules).</p>
-        </div>
-      </div>
 
-      <div class="tile-counts">
-        <p class="tile-counts-label">Tile Counts</p>
-        <p class="tile-counts-row">
-          <span>152 <em>Total Tiles</em></span>
-          <span>4 <em>Each Suited Tile</em></span>
-          <span>4 <em>Each Wind</em></span>
-          <span>4 <em>Each Dragon</em></span>
-          <span>8 <em>Flowers</em></span>
-          <span>8 <em>Jokers</em></span>
-        </p>
+      <div class="tile-vis-wrap">
+        <div class="tile-vis">
+
+          <!-- Suited tiles: BAMS · DOTS · CRAKS -->
+          <div class="tv-suited">
+
+            <!-- Column number headers -->
+            <div class="tv-colheads" aria-hidden="true">
+              <div class="tv-meta"></div>
+              <div class="tv-pips-row tv-pips-nums">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                <span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <div class="tv-dragon-head"></div>
+            </div>
+
+            <!-- BAMS row -->
+            <div class="tv-row">
+              <div class="tv-meta"><strong>BAMS</strong><span>4 of each</span></div>
+              <div class="tv-pips-row">
+                <!-- 1-BAM: bird/flower design -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="18" width="6" height="20" rx="3" fill="#4a9a4a"/><rect x="11" y="26" width="8" height="2" rx="1" fill="#2a6a2a"/><circle cx="15" cy="14" r="8" fill="#f0a030"/><circle cx="15" cy="14" r="5" fill="#d08020"/><circle cx="15" cy="12" r="2.5" fill="#f5c060"/><ellipse cx="8" cy="20" rx="5" ry="2.2" fill="#3a8a3a" transform="rotate(-35,8,20)"/><ellipse cx="22" cy="20" rx="5" ry="2.2" fill="#3a8a3a" transform="rotate(35,22,20)"/></svg></div>
+                <!-- 2-BAM -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="5" width="4" height="32" rx="2" fill="#4a9a4a"/><rect x="8" y="20" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="17" y="5" width="4" height="32" rx="2" fill="#4a9a4a"/><rect x="16" y="20" width="6" height="2" rx="1" fill="#2a6a2a"/></svg></div>
+                <!-- 3-BAM -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="4" height="32" rx="2" fill="#4a9a4a"/><rect x="4" y="20" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="13" y="5" width="4" height="32" rx="2" fill="#4a9a4a"/><rect x="12" y="20" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="21" y="5" width="4" height="32" rx="2" fill="#4a9a4a"/><rect x="20" y="20" width="6" height="2" rx="1" fill="#2a6a2a"/></svg></div>
+                <!-- 4-BAM: 2×2 -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="8" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="17" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="16" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="9" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="8" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="17" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="16" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/></svg></div>
+                <!-- 5-BAM: 3+2 -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="4" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="13" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="12" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="21" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="20" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="9" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="8" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="17" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="16" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/></svg></div>
+                <!-- 6-BAM: 3+3 -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="4" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="13" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="12" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="21" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="20" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="5" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="4" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="13" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="12" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="21" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="20" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/></svg></div>
+                <!-- 7-BAM: 2+3+2 -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="3" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="8" y="7.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="17" y="3" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="16" y="7.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="5" y="16" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="4" y="20.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="13" y="16" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="12" y="20.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="21" y="16" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="20" y="20.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="9" y="29" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="8" y="33.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="17" y="29" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="16" y="33.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/></svg></div>
+                <!-- 8-BAM: 4+4 -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="2" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="10" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="9" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="17" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="16" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="23" y="4" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="22" y="11" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="3" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="2" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="10" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="9" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="17" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="16" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/><rect x="23" y="23" width="4" height="15" rx="2" fill="#4a9a4a"/><rect x="22" y="30" width="6" height="2" rx="1" fill="#2a6a2a"/></svg></div>
+                <!-- 9-BAM: 3×3 -->
+                <div class="mjt mjt-bam"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="3" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="4" y="7.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="13" y="3" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="12" y="7.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="21" y="3" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="20" y="7.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="5" y="16" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="4" y="20.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="13" y="16" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="12" y="20.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="21" y="16" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="20" y="20.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="5" y="29" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="4" y="33.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="13" y="29" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="12" y="33.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/><rect x="21" y="29" width="4" height="10" rx="2" fill="#4a9a4a"/><rect x="20" y="33.5" width="6" height="1.5" rx="0.75" fill="#2a6a2a"/></svg></div>
+              </div>
+              <div class="tv-dragon">
+                <div class="mjt mjt-dragon"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="29" text-anchor="middle" font-size="22" fill="#2a8a2a" font-family="serif" font-weight="bold">發</text></svg></div>
+                <span>Green</span>
+              </div>
+            </div>
+
+            <!-- DOTS row -->
+            <div class="tv-row">
+              <div class="tv-meta"><strong>DOTS</strong><span>4 of each</span></div>
+              <div class="tv-pips-row">
+                <!-- 1-DOT -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="21" r="8" fill="#2222aa"/><circle cx="15" cy="21" r="5" fill="#cc1111"/></svg></div>
+                <!-- 2-DOT -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="11" r="6" fill="#2222aa"/><circle cx="15" cy="11" r="3.5" fill="#cc1111"/><circle cx="15" cy="31" r="6" fill="#2222aa"/><circle cx="15" cy="31" r="3.5" fill="#cc1111"/></svg></div>
+                <!-- 3-DOT -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="10" r="5.5" fill="#2222aa"/><circle cx="20" cy="10" r="3" fill="#cc1111"/><circle cx="15" cy="21" r="5.5" fill="#2222aa"/><circle cx="15" cy="21" r="3" fill="#cc1111"/><circle cx="10" cy="32" r="5.5" fill="#2222aa"/><circle cx="10" cy="32" r="3" fill="#cc1111"/></svg></div>
+                <!-- 4-DOT: 2×2 -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="13" r="5" fill="#2222aa"/><circle cx="10" cy="13" r="3" fill="#cc1111"/><circle cx="20" cy="13" r="5" fill="#2222aa"/><circle cx="20" cy="13" r="3" fill="#cc1111"/><circle cx="10" cy="29" r="5" fill="#2222aa"/><circle cx="10" cy="29" r="3" fill="#cc1111"/><circle cx="20" cy="29" r="5" fill="#2222aa"/><circle cx="20" cy="29" r="3" fill="#cc1111"/></svg></div>
+                <!-- 5-DOT: 4 corners + center -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="11" r="4.5" fill="#2222aa"/><circle cx="10" cy="11" r="2.5" fill="#cc1111"/><circle cx="20" cy="11" r="4.5" fill="#2222aa"/><circle cx="20" cy="11" r="2.5" fill="#cc1111"/><circle cx="15" cy="21" r="4.5" fill="#2222aa"/><circle cx="15" cy="21" r="2.5" fill="#cc1111"/><circle cx="10" cy="31" r="4.5" fill="#2222aa"/><circle cx="10" cy="31" r="2.5" fill="#cc1111"/><circle cx="20" cy="31" r="4.5" fill="#2222aa"/><circle cx="20" cy="31" r="2.5" fill="#cc1111"/></svg></div>
+                <!-- 6-DOT: 2×3 -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="4.5" fill="#2222aa"/><circle cx="10" cy="10" r="2.5" fill="#cc1111"/><circle cx="20" cy="10" r="4.5" fill="#2222aa"/><circle cx="20" cy="10" r="2.5" fill="#cc1111"/><circle cx="10" cy="21" r="4.5" fill="#2222aa"/><circle cx="10" cy="21" r="2.5" fill="#cc1111"/><circle cx="20" cy="21" r="4.5" fill="#2222aa"/><circle cx="20" cy="21" r="2.5" fill="#cc1111"/><circle cx="10" cy="32" r="4.5" fill="#2222aa"/><circle cx="10" cy="32" r="2.5" fill="#cc1111"/><circle cx="20" cy="32" r="4.5" fill="#2222aa"/><circle cx="20" cy="32" r="2.5" fill="#cc1111"/></svg></div>
+                <!-- 7-DOT -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="8" r="4" fill="#2222aa"/><circle cx="10" cy="8" r="2.5" fill="#cc1111"/><circle cx="20" cy="8" r="4" fill="#2222aa"/><circle cx="20" cy="8" r="2.5" fill="#cc1111"/><circle cx="10" cy="18" r="4" fill="#2222aa"/><circle cx="10" cy="18" r="2.5" fill="#cc1111"/><circle cx="20" cy="18" r="4" fill="#2222aa"/><circle cx="20" cy="18" r="2.5" fill="#cc1111"/><circle cx="15" cy="28" r="4" fill="#2222aa"/><circle cx="15" cy="28" r="2.5" fill="#cc1111"/><circle cx="10" cy="37" r="4" fill="#2222aa"/><circle cx="10" cy="37" r="2.5" fill="#cc1111"/><circle cx="20" cy="37" r="4" fill="#2222aa"/><circle cx="20" cy="37" r="2.5" fill="#cc1111"/></svg></div>
+                <!-- 8-DOT: 2×4 -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="7" r="4" fill="#2222aa"/><circle cx="10" cy="7" r="2.5" fill="#cc1111"/><circle cx="20" cy="7" r="4" fill="#2222aa"/><circle cx="20" cy="7" r="2.5" fill="#cc1111"/><circle cx="10" cy="17" r="4" fill="#2222aa"/><circle cx="10" cy="17" r="2.5" fill="#cc1111"/><circle cx="20" cy="17" r="4" fill="#2222aa"/><circle cx="20" cy="17" r="2.5" fill="#cc1111"/><circle cx="10" cy="26" r="4" fill="#2222aa"/><circle cx="10" cy="26" r="2.5" fill="#cc1111"/><circle cx="20" cy="26" r="4" fill="#2222aa"/><circle cx="20" cy="26" r="2.5" fill="#cc1111"/><circle cx="10" cy="35" r="4" fill="#2222aa"/><circle cx="10" cy="35" r="2.5" fill="#cc1111"/><circle cx="20" cy="35" r="4" fill="#2222aa"/><circle cx="20" cy="35" r="2.5" fill="#cc1111"/></svg></div>
+                <!-- 9-DOT: 3×3 -->
+                <div class="mjt mjt-dot"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="4" fill="#2222aa"/><circle cx="9" cy="9" r="2.5" fill="#cc1111"/><circle cx="15" cy="9" r="4" fill="#2222aa"/><circle cx="15" cy="9" r="2.5" fill="#cc1111"/><circle cx="21" cy="9" r="4" fill="#2222aa"/><circle cx="21" cy="9" r="2.5" fill="#cc1111"/><circle cx="9" cy="21" r="4" fill="#2222aa"/><circle cx="9" cy="21" r="2.5" fill="#cc1111"/><circle cx="15" cy="21" r="4" fill="#2222aa"/><circle cx="15" cy="21" r="2.5" fill="#cc1111"/><circle cx="21" cy="21" r="4" fill="#2222aa"/><circle cx="21" cy="21" r="2.5" fill="#cc1111"/><circle cx="9" cy="33" r="4" fill="#2222aa"/><circle cx="9" cy="33" r="2.5" fill="#cc1111"/><circle cx="15" cy="33" r="4" fill="#2222aa"/><circle cx="15" cy="33" r="2.5" fill="#cc1111"/><circle cx="21" cy="33" r="4" fill="#2222aa"/><circle cx="21" cy="33" r="2.5" fill="#cc1111"/></svg></div>
+              </div>
+              <div class="tv-dragon">
+                <div class="mjt mjt-dragon"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="5" width="22" height="32" rx="2" fill="none" stroke="#666" stroke-width="2"/><rect x="7" y="8" width="16" height="26" rx="1" fill="none" stroke="#aaa" stroke-width="1"/><text x="15" y="28" text-anchor="middle" font-size="11" fill="#555" font-family="serif" font-weight="600">白</text></svg></div>
+                <span>Soap</span>
+              </div>
+            </div>
+
+            <!-- CRAKS row -->
+            <div class="tv-row">
+              <div class="tv-meta"><strong>CRAKS</strong><span>4 of each</span></div>
+              <div class="tv-pips-row">
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">一</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">二</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">三</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">四</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">五</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">六</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">七</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">八</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+                <div class="mjt mjt-crak"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="27" text-anchor="middle" font-size="19" fill="#cc2222" font-family="serif" font-weight="600">九</text><text x="15" y="38" text-anchor="middle" font-size="8" fill="#cc2222" font-family="serif">萬</text></svg></div>
+              </div>
+              <div class="tv-dragon">
+                <div class="mjt mjt-dragon"><svg viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg"><text x="15" y="29" text-anchor="middle" font-size="22" fill="#cc2222" font-family="serif" font-weight="bold">中</text></svg></div>
+                <span>Red</span>
+              </div>
+            </div>
+
+          </div><!-- /tv-suited -->
+
+          <!-- Special tiles: WINDS · FLOWERS · JOKERS -->
+          <div class="tv-special">
+
+            <div class="tv-special-group">
+              <div class="tv-special-label">WINDS <span>4 each</span></div>
+              <div class="tv-special-row">
+                <div class="mjt mjt-wind"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="8" y="14" font-size="8" fill="#999" font-family="sans-serif" font-weight="600">N</text><text x="19" y="40" text-anchor="middle" font-size="24" fill="#1a1815" font-family="serif">北</text></svg></div>
+                <div class="mjt mjt-wind"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="8" y="14" font-size="8" fill="#999" font-family="sans-serif" font-weight="600">E</text><text x="19" y="40" text-anchor="middle" font-size="24" fill="#1a1815" font-family="serif">東</text></svg></div>
+                <div class="mjt mjt-wind"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="8" y="14" font-size="8" fill="#999" font-family="sans-serif" font-weight="600">W</text><text x="19" y="40" text-anchor="middle" font-size="24" fill="#1a1815" font-family="serif">西</text></svg></div>
+                <div class="mjt mjt-wind"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="8" y="14" font-size="8" fill="#999" font-family="sans-serif" font-weight="600">S</text><text x="19" y="40" text-anchor="middle" font-size="24" fill="#1a1815" font-family="serif">南</text></svg></div>
+              </div>
+            </div>
+
+            <div class="tv-special-divider"></div>
+
+            <div class="tv-special-group">
+              <div class="tv-special-label">FLOWERS <span>8 total</span></div>
+              <div class="tv-special-row">
+                <div class="mjt mjt-flower"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="6" y="14" font-size="8" fill="#cc2222" font-family="sans-serif" font-weight="700">1</text><text x="5" y="23" font-size="7" fill="#cc2222" font-family="sans-serif" font-weight="600">SPR</text><circle cx="19" cy="39" r="5" fill="#f5c0c0"/><circle cx="13" cy="34" r="4" fill="#f08080"/><circle cx="25" cy="34" r="4" fill="#f08080"/><circle cx="13" cy="44" r="4" fill="#f08080"/><circle cx="25" cy="44" r="4" fill="#f08080"/><circle cx="19" cy="39" r="3" fill="#f5e040"/></svg></div>
+                <div class="mjt mjt-flower"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="6" y="14" font-size="8" fill="#2a8a2a" font-family="sans-serif" font-weight="700">2</text><text x="5" y="23" font-size="7" fill="#2a8a2a" font-family="sans-serif" font-weight="600">SUM</text><circle cx="19" cy="39" r="5" fill="#c0f0c0"/><circle cx="13" cy="34" r="4" fill="#70c070"/><circle cx="25" cy="34" r="4" fill="#70c070"/><circle cx="13" cy="44" r="4" fill="#70c070"/><circle cx="25" cy="44" r="4" fill="#70c070"/><circle cx="19" cy="39" r="3" fill="#f5e040"/></svg></div>
+                <div class="mjt mjt-flower"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="6" y="14" font-size="8" fill="#cc6600" font-family="sans-serif" font-weight="700">3</text><text x="5" y="23" font-size="7" fill="#cc6600" font-family="sans-serif" font-weight="600">AUT</text><circle cx="19" cy="39" r="5" fill="#f5d090"/><circle cx="13" cy="34" r="4" fill="#d08030"/><circle cx="25" cy="34" r="4" fill="#d08030"/><circle cx="13" cy="44" r="4" fill="#d08030"/><circle cx="25" cy="44" r="4" fill="#d08030"/><circle cx="19" cy="39" r="3" fill="#f5e040"/></svg></div>
+                <div class="mjt mjt-flower"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><text x="6" y="14" font-size="8" fill="#2255aa" font-family="sans-serif" font-weight="700">4</text><text x="5" y="23" font-size="7" fill="#2255aa" font-family="sans-serif" font-weight="600">WIN</text><circle cx="19" cy="39" r="5" fill="#c0c8f0"/><circle cx="13" cy="34" r="4" fill="#5060b0"/><circle cx="25" cy="34" r="4" fill="#5060b0"/><circle cx="13" cy="44" r="4" fill="#5060b0"/><circle cx="25" cy="44" r="4" fill="#5060b0"/><circle cx="19" cy="39" r="3" fill="#d0e8ff"/></svg></div>
+              </div>
+            </div>
+
+            <div class="tv-special-divider"></div>
+
+            <div class="tv-special-group">
+              <div class="tv-special-label">JOKERS <span>4 total</span></div>
+              <div class="tv-special-row">
+                <div class="mjt mjt-joker"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><circle cx="19" cy="31" r="14" fill="none" stroke="#2a7a2a" stroke-width="2.5"/><circle cx="19" cy="31" r="10" fill="none" stroke="#2a7a2a" stroke-width="1.5"/><text x="19" y="35" text-anchor="middle" font-size="7" fill="#2a7a2a" font-family="sans-serif" font-weight="700" letter-spacing="0.5">JOEKRS</text></svg></div>
+                <div class="mjt mjt-joker"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><circle cx="19" cy="31" r="14" fill="none" stroke="#2a7a2a" stroke-width="2.5"/><circle cx="19" cy="31" r="10" fill="none" stroke="#2a7a2a" stroke-width="1.5"/><text x="19" y="35" text-anchor="middle" font-size="7" fill="#2a7a2a" font-family="sans-serif" font-weight="700" letter-spacing="0.5">JOEKRS</text></svg></div>
+                <div class="mjt mjt-joker"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><circle cx="19" cy="31" r="14" fill="none" stroke="#2a7a2a" stroke-width="2.5"/><circle cx="19" cy="31" r="10" fill="none" stroke="#2a7a2a" stroke-width="1.5"/><text x="19" y="35" text-anchor="middle" font-size="7" fill="#2a7a2a" font-family="sans-serif" font-weight="700" letter-spacing="0.5">JOEKRS</text></svg></div>
+                <div class="mjt mjt-joker"><svg viewBox="0 0 38 52" xmlns="http://www.w3.org/2000/svg"><circle cx="19" cy="31" r="14" fill="none" stroke="#2a7a2a" stroke-width="2.5"/><circle cx="19" cy="31" r="10" fill="none" stroke="#2a7a2a" stroke-width="1.5"/><text x="19" y="35" text-anchor="middle" font-size="7" fill="#2a7a2a" font-family="sans-serif" font-weight="700" letter-spacing="0.5">JOEKRS</text></svg></div>
+              </div>
+            </div>
+
+          </div><!-- /tv-special -->
+
+        </div><!-- /tile-vis -->
+      </div><!-- /tile-vis-wrap -->
+
+      <div class="tile-counts-bar">
+        <span class="tc-label">TILE COUNTS</span>
+        <span>152 <em>Total</em></span>
+        <span>4 <em>Each Suited</em></span>
+        <span>4 <em>Each Wind</em></span>
+        <span>4 <em>Each Dragon</em></span>
+        <span>8 <em>Flowers</em></span>
+        <span>8 <em>Jokers</em></span>
       </div>
     </section>
 
