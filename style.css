@@ -271,12 +271,13 @@ body.menu-open { overflow: hidden; }
 }
 
 .hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  letter-spacing: 0.08em;
-  line-height: 1.05;
-  margin-bottom: 0.4rem;
+  font-size: clamp(2rem, 5.2vw, 3.5rem);
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
 }
 
 .hero-flourish {
@@ -1236,39 +1237,6 @@ footer small {
 
 /* ── CONTACT ── */
 
-.contact-direct {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-
-.contact-direct-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--steel-blue);
-  margin-bottom: 1rem;
-}
-
-.contact-direct-links {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--near-black);
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-
-.contact-link:hover { color: var(--gold); }
-
 .contact-section {
   padding: 4rem 2.5rem;
   border-top: 1px solid var(--border);
@@ -1518,7 +1486,6 @@ footer small {
 .pricing-card--featured .pricing-detail,
 .contact-card-label,
 .contact-intro,
-.contact-direct-label,
 .footer-brand span,
 footer small,
 .qr-url,
