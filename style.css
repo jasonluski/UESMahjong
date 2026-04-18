@@ -593,14 +593,15 @@ body.menu-open { overflow: hidden; }
 /* ── PRICING BANNER (Events & Corporate) ── */
 .pricing-banner {
   margin-top: 1.5rem;
-  padding: 2rem 2.5rem;
+  padding: 2.25rem 2.5rem;
   border: 1px solid var(--border);
   background-color: var(--cream);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
@@ -611,56 +612,43 @@ body.menu-open { overflow: hidden; }
 }
 
 .pricing-banner-content {
-  flex: 1 1 300px;
-  min-width: 0;
+  max-width: 640px;
 }
 
 .pricing-banner-type {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: var(--near-black);
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.4rem;
   letter-spacing: 0.01em;
 }
 
 .pricing-banner-detail {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 300;
   color: var(--slate);
-  line-height: 1.6;
+  line-height: 1.55;
   margin: 0;
 }
 
 .pricing-banner-cta {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
 }
 
 .pricing-banner-amount {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
   margin: 0;
-}
-
-@media (max-width: 700px) {
-  .pricing-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 1.75rem;
-  }
-  .pricing-banner-cta {
-    width: 100%;
-    justify-content: space-between;
-  }
 }
 
 /* ── BOOKING FORM ── */
