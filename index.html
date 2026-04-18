@@ -234,24 +234,24 @@
     <form class="booking-form" id="bookingForm" action="https://formspree.io/f/mqewqwbw" method="POST" novalidate>
 
       <!-- Contact -->
-      <div class="form-group">
-        <label for="name">Name <span class="required">*</span></label>
+      <div class="form-group form-group--float">
         <input type="text" id="name" name="name" required placeholder="Your full name" />
+        <label for="name">Name <span class="required">*</span></label>
       </div>
 
-      <div class="form-group">
-        <label for="email">Email <span class="required">*</span></label>
+      <div class="form-group form-group--float">
         <input type="email" id="email" name="email" required placeholder="your@email.com" />
+        <label for="email">Email <span class="required">*</span></label>
       </div>
 
-      <div class="form-group">
-        <label for="phone">Phone <span class="optional">(optional)</span></label>
+      <div class="form-group form-group--float">
         <input type="tel" id="phone" name="phone" placeholder="(212) 000-0000" />
+        <label for="phone">Phone <span class="optional">(optional)</span></label>
       </div>
 
-      <div class="form-group">
-        <label for="instagram">Instagram / Social <span class="optional">(optional)</span></label>
+      <div class="form-group form-group--float">
         <input type="text" id="instagram" name="instagram" placeholder="@handle" />
+        <label for="instagram">Instagram / Social <span class="optional">(optional)</span></label>
       </div>
 
       <!-- Lesson Type -->
@@ -349,9 +349,9 @@
       </div>
 
       <!-- Notes -->
-      <div class="form-group form-group--full">
-        <label for="notes">Notes <span class="optional">(optional)</span></label>
+      <div class="form-group form-group--full form-group--float">
         <textarea id="notes" name="notes" rows="3" placeholder="Anything else we should know?"></textarea>
+        <label for="notes">Notes <span class="optional">(optional)</span></label>
       </div>
 
       <div class="form-group form-group--full">
@@ -435,14 +435,16 @@
   <script src="https://w.behold.so/widget.js" type="module"></script>
 
   <script>
-    // Hero parallax — pattern layer at 0.35×, logo-mark at 0.15×
+    // Hero parallax — pattern layer at 0.35×, logo-mark at 0.15× (reduced on mobile)
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (window.innerWidth < 768) return;
       var pattern = document.querySelector('.hero-pattern');
       var logoMark = document.querySelector('.logo-mark');
       var hero = document.querySelector('.hero');
       if (!pattern || !hero) return;
+      var isMobile = window.innerWidth < 768;
+      var patternRate = isMobile ? 0.15 : 0.35;
+      var logoRate = isMobile ? 0.06 : 0.15;
       var heroH = hero.offsetHeight;
       var ticking = false;
       window.addEventListener('scroll', function() {
@@ -451,8 +453,8 @@
         requestAnimationFrame(function() {
           var sy = window.scrollY;
           if (sy <= heroH) {
-            pattern.style.transform = 'translateY(' + (sy * 0.35) + 'px)';
-            if (logoMark) logoMark.style.transform = 'translateY(' + (sy * 0.15) + 'px)';
+            pattern.style.transform = 'translateY(' + (sy * patternRate) + 'px)';
+            if (logoMark) logoMark.style.transform = 'translateY(' + (sy * logoRate) + 'px)';
           }
           ticking = false;
         });

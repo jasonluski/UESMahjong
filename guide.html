@@ -58,6 +58,9 @@
     </ul>
   </dialog>
 
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- GUIDE HEADER -->
   <header class="guide-header">
     <p class="guide-eyebrow" data-reveal>A Table-Side Reference</p>
@@ -65,12 +68,31 @@
     <p class="guide-subhead" data-reveal>Modern American Rules</p>
   </header>
 
+  <div class="guide-layout">
+  <aside class="guide-sidebar" aria-label="Guide navigation">
+    <p class="guide-nav-label">Contents</p>
+    <nav>
+      <ul class="guide-nav-list">
+        <li><a href="#tiles" class="guide-nav-link">The Tiles</a></li>
+        <li><a href="#charleston" class="guide-nav-link">The Charleston</a></li>
+        <li><a href="#game-flow" class="guide-nav-link">Game Flow</a></li>
+        <li><a href="#joker-rules" class="guide-nav-link">Joker Rules</a></li>
+        <li><a href="#calling-tiles" class="guide-nav-link">Calling Tiles</a></li>
+        <li><a href="#reading-card" class="guide-nav-link">Reading the Card</a></li>
+        <li><a href="#hand-types" class="guide-nav-link">Hand Types</a></li>
+        <li><a href="#winning" class="guide-nav-link">Winning</a></li>
+        <li><a href="#etiquette" class="guide-nav-link">Etiquette</a></li>
+        <li><a href="#quick-tips" class="guide-nav-link">Quick Tips</a></li>
+      </ul>
+    </nav>
+  </aside>
+
   <div class="guide">
 
     <!-- ── PART ONE ── -->
 
     <!-- THE TILES -->
-    <section class="guide-section tiles-vis-section" data-reveal>
+    <section id="tiles" class="guide-section tiles-vis-section" data-reveal>
       <h2 class="guide-h2">The Tiles</h2>
 
       <div class="tile-vis-wrap">
@@ -223,7 +245,7 @@
     </section>
 
     <!-- THE CHARLESTON -->
-    <section class="guide-section" data-reveal>
+    <section id="charleston" class="guide-section" data-reveal>
       <h2 class="guide-h2">The Charleston</h2>
       <div class="two-col">
 
@@ -254,7 +276,7 @@
     </section>
 
     <!-- GAME FLOW -->
-    <section class="guide-section" data-reveal>
+    <section id="game-flow" class="guide-section" data-reveal>
       <h2 class="guide-h2">Game Flow</h2>
       <div class="two-col">
 
@@ -274,7 +296,7 @@
     </section>
 
     <!-- JOKER RULES -->
-    <section class="guide-section" data-reveal>
+    <section id="joker-rules" class="guide-section" data-reveal>
       <h2 class="guide-h2">Joker Rules</h2>
       <div class="two-col">
 
@@ -303,7 +325,7 @@
     </section>
 
     <!-- CALLING TILES -->
-    <section class="guide-section" data-reveal>
+    <section id="calling-tiles" class="guide-section" data-reveal>
       <h2 class="guide-h2">Calling Tiles</h2>
       <ul class="dash-list">
         <li>A discarded tile may be called to complete an <strong>exposed</strong> Pung, Kong, Quint, or Sextet</li>
@@ -318,7 +340,7 @@
     <!-- ── PART TWO ── -->
 
     <!-- READING THE CARD -->
-    <section class="guide-section" data-reveal>
+    <section id="reading-card" class="guide-section" data-reveal>
       <h2 class="guide-h2">Reading the Card</h2>
       <div class="two-col">
 
@@ -343,7 +365,7 @@
     </section>
 
     <!-- HAND TYPES -->
-    <section class="guide-section" data-reveal>
+    <section id="hand-types" class="guide-section" data-reveal>
       <h2 class="guide-h2">Hand Types</h2>
       <p class="muted">Patterns shown are examples. Always follow the current NMJL card.</p>
       <div class="hand-table">
@@ -372,7 +394,7 @@
     </section>
 
     <!-- WINNING -->
-    <section class="guide-section" data-reveal>
+    <section id="winning" class="guide-section" data-reveal>
       <h2 class="guide-h2">Winning <span class="accent">&mdash; <em>Mahjong!</em></span></h2>
       <ul class="dash-list">
         <li>Match one complete hand exactly as shown on the card</li>
@@ -384,7 +406,7 @@
     </section>
 
     <!-- ETIQUETTE -->
-    <section class="guide-section" data-reveal>
+    <section id="etiquette" class="guide-section" data-reveal>
       <h2 class="guide-h2">Etiquette</h2>
       <div class="two-col">
 
@@ -412,7 +434,7 @@
     </section>
 
     <!-- QUICK TIPS -->
-    <section class="guide-section" data-reveal>
+    <section id="quick-tips" class="guide-section" data-reveal>
       <div class="tips-card">
         <p class="card-label dark">Quick Tips for Beginners</p>
         <ol class="tips-list">
@@ -431,7 +453,8 @@
       <a class="btn-book" href="index.html#book">Book a Lesson</a>
     </section>
 
-  </div>
+  </div><!-- /guide -->
+  </div><!-- /guide-layout -->
 
   <!-- FOOTER -->
   <footer>
@@ -478,6 +501,36 @@
   </dialog>
 
   <script>
+    // Scroll progress bar
+    (function() {
+      var bar = document.getElementById('scrollProgress');
+      if (!bar) return;
+      window.addEventListener('scroll', function() {
+        var doc = document.documentElement;
+        var pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+        bar.style.width = Math.min(pct, 100) + '%';
+      }, { passive: true });
+    })();
+
+    // Guide sidebar — highlight active section
+    (function() {
+      var links = document.querySelectorAll('.guide-nav-link');
+      if (!links.length) return;
+      var sections = Array.from(links).map(function(l) {
+        return document.querySelector(l.getAttribute('href'));
+      }).filter(Boolean);
+      var activate = function() {
+        var scrollY = window.scrollY + 100;
+        var active = sections[0];
+        sections.forEach(function(s) { if (s.offsetTop <= scrollY) active = s; });
+        links.forEach(function(l) {
+          l.classList.toggle('is-active', l.getAttribute('href') === '#' + active.id);
+        });
+      };
+      window.addEventListener('scroll', activate, { passive: true });
+      activate();
+    })();
+
     // Scroll-aware nav
     (function() {
       var nav = document.getElementById('siteNav');
