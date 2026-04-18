@@ -449,6 +449,53 @@
   <script src="https://w.behold.so/widget.js" type="module"></script>
 
   <script>
+    // Hero parallax — pattern layer at 0.35×, logo-mark at 0.15×
+    (function() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var pattern = document.querySelector('.hero-pattern');
+      var logoMark = document.querySelector('.logo-mark');
+      var hero = document.querySelector('.hero');
+      if (!pattern || !hero) return;
+      var heroH = hero.offsetHeight;
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+          var sy = window.scrollY;
+          if (sy <= heroH) {
+            pattern.style.transform = 'translateY(' + (sy * 0.35) + 'px)';
+            if (logoMark) logoMark.style.transform = 'translateY(' + (sy * 0.15) + 'px)';
+          }
+          ticking = false;
+        });
+      }, { passive: true });
+    })();
+
+    // Pricing card 3D tilt on mousemove (pointer devices only)
+    (function() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.pricing-card').forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+          card.style.transition = 'box-shadow 0.3s, border-color 0.3s';
+        });
+        card.addEventListener('mousemove', function(e) {
+          var r = card.getBoundingClientRect();
+          var dx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+          var dy = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+          var rotY =  dx * 7;
+          var rotX = -dy * 5;
+          card.style.transform =
+            'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateY(-6px) scale(1.015)';
+        });
+        card.addEventListener('mouseleave', function() {
+          card.style.transition = '';
+          card.style.transform  = '';
+        });
+      });
+    })();
+
     // Scroll-aware nav
     (function() {
       var nav = document.getElementById('siteNav');
