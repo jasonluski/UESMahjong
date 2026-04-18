@@ -256,7 +256,7 @@ body.menu-open { overflow: hidden; }
 
 .hero-logo {
   display: block;
-  width: clamp(200px, 32vw, 320px);
+  width: clamp(320px, 50vw, 500px);
   height: auto;
   margin: 0 auto;
   will-change: transform;
