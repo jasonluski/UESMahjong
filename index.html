@@ -15,6 +15,7 @@
     <ul class="nav-links">
       <li><a href="#lessons">Lessons</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="guide.html">Guide</a></li>
       <li><a href="#book">Book</a></li>
     </ul>
   </nav>
@@ -291,16 +292,24 @@
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       }).then(function(res) {
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('bookingSuccess').style.display = 'block';
-        } else {
-          errorEl.textContent = 'Something went wrong. Please try again or email luskiashley@gmail.com.';
-          btn.disabled = false;
-          btn.textContent = 'Request Booking';
-        }
+        return res.json().then(function(data) {
+          if (res.ok) {
+            form.style.display = 'none';
+            document.getElementById('bookingSuccess').style.display = 'block';
+          } else {
+            var msg = 'Something went wrong. ';
+            if (data && data.errors && data.errors.length) {
+              msg = data.errors.map(function(e) { return e.message; }).join(' ');
+            } else if (data && data.error) {
+              msg = data.error;
+            }
+            errorEl.textContent = msg + ' Or email luskiashley@gmail.com directly.';
+            btn.disabled = false;
+            btn.textContent = 'Request Booking';
+          }
+        });
       }).catch(function() {
-        errorEl.textContent = 'Could not send. Please check your connection and try again.';
+        errorEl.textContent = 'Could not send. Please check your connection or email luskiashley@gmail.com.';
         btn.disabled = false;
         btn.textContent = 'Request Booking';
       });
