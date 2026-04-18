@@ -34,7 +34,6 @@
 .pricing-grid [data-reveal]:nth-child(1) { transition-delay: 0s; }
 .pricing-grid [data-reveal]:nth-child(2) { transition-delay: 0.08s; }
 .pricing-grid [data-reveal]:nth-child(3) { transition-delay: 0.16s; }
-.pricing-grid [data-reveal]:nth-child(4) { transition-delay: 0.24s; }
 .contact-cards [data-reveal]:nth-child(2) { transition-delay: 0.1s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -431,12 +430,8 @@ body.menu-open { overflow: hidden; }
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-}
-
-@media (max-width: 1100px) {
-  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -593,6 +588,79 @@ body.menu-open { overflow: hidden; }
   }
 
 
+}
+
+/* ── PRICING BANNER (Events & Corporate) ── */
+.pricing-banner {
+  margin-top: 1.5rem;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--border);
+  background-color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.pricing-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border-color: var(--gold);
+}
+
+.pricing-banner-content {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.pricing-banner-type {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--near-black);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.01em;
+}
+
+.pricing-banner-detail {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pricing-banner-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pricing-banner-amount {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .pricing-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.75rem;
+  }
+  .pricing-banner-cta {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /* ── BOOKING FORM ── */
