@@ -133,7 +133,7 @@
     <div class="hero-flourish" data-reveal aria-hidden="true">
       <span class="flourish-line"></span><span class="flourish-diamond"></span><span class="flourish-line"></span>
     </div>
-    <p class="hero-tagline" data-reveal>American Mahjong Lessons &middot; Upper East Side</p>
+    <p class="hero-tagline" data-reveal>American Mahjong Lessons &middot;<br>Upper East Side</p>
     <a class="btn-book" data-reveal href="#book">Book a Lesson</a>
 
   </section>
@@ -438,6 +438,7 @@
     // Hero parallax — pattern layer at 0.35×, logo-mark at 0.15×
     (function() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.innerWidth < 768) return;
       var pattern = document.querySelector('.hero-pattern');
       var logoMark = document.querySelector('.logo-mark');
       var hero = document.querySelector('.hero');
