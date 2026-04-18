@@ -248,18 +248,35 @@ body.menu-open { overflow: hidden; }
   isolation: isolate;
 }
 
-.hero-logo-wrap {
-  margin: 0 0 1.5rem;
-  line-height: 0;
-  font-weight: inherit;
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--near-black) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 75%);
+          mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 75%);
+  will-change: transform;
 }
 
-.hero-logo {
-  display: block;
-  width: clamp(560px, 75vw, 900px);
+.logo-mark {
+  width: 90px;
   height: auto;
-  margin: 0 auto;
-  will-change: transform;
+  color: var(--near-black);
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 6px 18px rgba(26, 24, 21, 0.08));
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  margin-bottom: 0.4rem;
 }
 
 .hero-flourish {
@@ -282,6 +299,16 @@ body.menu-open { overflow: hidden; }
   height: 5px;
   background-color: var(--gold);
   transform: rotate(45deg);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--steel-blue);
+  margin-bottom: 1.5rem;
 }
 
 .hero-tagline {
